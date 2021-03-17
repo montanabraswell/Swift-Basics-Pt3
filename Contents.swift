@@ -9,30 +9,40 @@ import UIKit
 
 class Spaceship {
     
-    var fuelLevel = 100
+    var fuelLevel = 50
     var name = ""
     
     
-    func cruise(){
-        // code to initiate crusing
-        print("Cruising is initiated for \(name)")
+    func cruise() {
+        fuelLevel -= 5
         
         
     }
 
 
-    func thrust(){
-        // code to initiate rocket thrusters
-      print("Rocket Thrusters initiated for \(name)")
+    func thrust() {
+        fuelLevel -= 20
         
     }
+}
 
+class UFO : Spaceship {
     
+    override func cruise() {
+        // Call the cruise method of the superclass
+        super.cruise()
+        
+        // Provide the extended functionality
+        print("UFO cruise")
+        print(fuelLevel)
+    }
+    
+    override func thrust() {
+        print("Ufo thrust")
+    }
     
 }
 
-var myShip:Spaceship = Spaceship()
-myShip.name = "Montezuma"
-myShip.cruise()
-print(myShip.name)
-print(myShip.fuelLevel)
+let u = UFO()
+u.cruise()
+u.fuelLevel
